@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>理想营养家 · 28天代谢重启体验营</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --blue: #1A6FBE;
+    --blue-dark: #0F4D8A;
+    --blue-light: #E8F2FB;
+    --orange: #F5851E;
+    --orange-light: #FEF3E8;
+    --gray-100: #F8F9FA;
+    --gray-200: #EEEFF1;
+    --gray-500: #8A8F99;
+    --gray-700: #4A4F5C;
+    --gray-900: #1A1D24;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Helvetica Neue', sans-serif;
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--blue-dark);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(245,133,30,0.12);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .cover-brand {
+    font-size: 13px;
+    letter-spacing: 4px;
+    opacity: 0.6;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+  .cover-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .logo-icon {
+    width: 52px; height: 52px;
+    background: var(--orange);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; font-weight: 900; color: white;
+  }
+  .logo-text { text-align: left; }
+  .logo-text-main { font-size: 22px; font-weight: 700; }
+  .logo-text-sub { font-size: 11px; opacity: 0.5; letter-spacing: 1px; }
+
+  .cover-tag {
+    display: inline-block;
+    background: rgba(245,133,30,0.2);
+    color: var(--orange);
+    border: 1px solid rgba(245,133,30,0.4);
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+  .cover-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .cover-title span { color: var(--orange); }
+  .cover-subtitle {
+    font-size: 16px;
+    opacity: 0.65;
+    margin-bottom: 60px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .cover-stats {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .cover-stat { text-align: center; }
+  .cover-stat-num { font-size: 36px; font-weight: 900; color: var(--orange); }
+  .cover-stat-label { font-size: 12px; opacity: 0.5; margin-top: 4px; letter-spacing: 1px; }
+
+  /* ── SECTION ── */
+  .section { padding: 80px 40px; max-width: 900px; margin: 0 auto; }
+  .section-full { padding: 80px 0; }
+  .section-bg { background: var(--gray-100); }
+  .section-blue { background: var(--blue); color: white; }
+  .section-orange { background: var(--orange); color: white; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--orange);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .section-tag-white { color: rgba(255,255,255,0.6); }
+
+  h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  h2 span { color: var(--orange); }
+  h2.white { color: white; }
+  h2.white span { color: rgba(255,255,255,0.5); }
+
+  .section-lead {
+    font-size: 16px;
+    color: var(--gray-500);
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+
+  .divider {
+    width: 48px; height: 4px;
+    background: var(--orange);
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .divider-white { background: rgba(255,255,255,0.4); }
+
+  /* ── PAIN POINTS ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .pain-card {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pain-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--orange);
+    border-radius: 4px 0 0 4px;
+  }
+  .pain-icon { font-size: 28px; margin-bottom: 12px; }
+  .pain-title { font-weight: 700; margin-bottom: 8px; font-size: 15px; }
+  .pain-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+
+  /* ── WHY 14+14 ── */
+  .why-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .why-card {
+    border-radius: 20px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card-1 { background: var(--blue); color: white; }
+  .why-card-2 { background: var(--orange); color: white; }
+  .why-num {
+    font-size: 80px;
+    font-weight: 900;
+    opacity: 0.12;
+    position: absolute;
+    top: -16px; right: 16px;
+    line-height: 1;
+  }
+  .why-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .why-title { font-size: 22px; font-weight: 900; margin-bottom: 12px; }
+  .why-desc { font-size: 14px; opacity: 0.8; line-height: 1.7; }
+  .why-list { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .why-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; opacity: 0.85;
+  }
+  .why-item-dot {
+    width: 6px; height: 6px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .why-connector {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; color: var(--gray-500);
+    padding: 0 8px;
+  }
+
+  /* ── JOURNEY ── */
+  .journey-wrap { margin-top: 40px; }
+  .journey-phase { margin-bottom: 48px; }
+  .phase-header {
+    display: flex; align-items: center; gap: 20px;
+    margin-bottom: 24px;
+  }
+  .phase-num {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; color: white;
+    flex-shrink: 0;
+  }
+  .phase-num-1 { background: var(--blue); }
+  .phase-num-2 { background: var(--orange); }
+  .phase-info { flex: 1; }
+  .phase-label { font-size: 11px; color: var(--gray-500); letter-spacing: 2px; margin-bottom: 4px; }
+  .phase-title { font-size: 20px; font-weight: 900; }
+  .phase-days { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: 24px;
+    border-left: 2px solid var(--gray-200);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 16px 0 16px 28px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px; top: 24px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+  .timeline-item-orange::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
+  .timeline-days { font-size: 11px; font-weight: 700; color: var(--blue); letter-spacing: 1px; margin-bottom: 6px; }
+  .timeline-days-orange { color: var(--orange); }
+  .timeline-title { font-weight: 700; margin-bottom: 6px; }
+  .timeline-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+
+  /* ── STATS ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 40px;
+    background: var(--gray-200);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .stat-card {
+    background: white;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .stat-num { font-size: 40px; font-weight: 900; color: var(--blue); line-height: 1; }
+  .stat-unit { font-size: 16px; font-weight: 400; color: var(--gray-500); }
+  .stat-label { font-size: 12px; color: var(--gray-500); margin-top: 8px; }
+
+  /* ── CASES ── */
+  .cases-grid { display: flex; flex-direction: column; gap: 32px; margin-top: 40px; }
+  .case-card {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .case-header {
+    background: var(--blue-light);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1.5px solid var(--gray-200);
+  }
+  .case-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: white; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .case-meta-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .case-meta-info { font-size: 13px; color: var(--gray-500); }
+  .case-body { padding: 28px 32px; }
+  .case-challenge {
+    background: var(--gray-100);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--gray-700);
+    margin-bottom: 24px;
+    border-left: 3px solid var(--orange);
+  }
+  .case-challenge-label { font-size: 11px; color: var(--orange); font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .case-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .result-item {
+    background: var(--blue-light);
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .result-num { font-size: 22px; font-weight: 900; color: var(--blue); }
+  .result-label { font-size: 11px; color: var(--gray-500); margin-top: 4px; }
+  .case-quote {
+    background: var(--orange-light);
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 14px;
+    color: var(--gray-700);
+    font-style: italic;
+    border-left: 3px solid var(--orange);
+    line-height: 1.7;
+  }
+  .case-quote::before { content: '"'; font-size: 24px; color: var(--orange); font-style: normal; line-height: 0; vertical-align: -8px; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+    max-width: 900px; margin-left: auto; margin-right: auto; padding: 0 40px 80px;
+  }
+  .testimonial-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+  }
+  .testimonial-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .about-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1.5px solid var(--gray-200);
+  }
+  .about-icon {
+    width: 44px; height: 44px;
+    background: var(--blue-light);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .about-title { font-weight: 700; margin-bottom: 8px; font-size: 15px; }
+  .about-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+
+  /* ── FIT ── */
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .fit-card {
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .fit-yes { background: var(--blue-light); border: 1.5px solid rgba(26,111,190,0.15); }
+  .fit-no { background: #FFF5F5; border: 1.5px solid rgba(220,53,69,0.12); }
+  .fit-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .fit-dot-yes { width: 10px; height: 10px; background: var(--blue); border-radius: 50%; }
+  .fit-dot-no { width: 10px; height: 10px; background: #DC3545; border-radius: 50%; }
+  .fit-title-yes { font-weight: 700; color: var(--blue); }
+  .fit-title-no { font-weight: 700; color: #DC3545; }
+  .fit-list { display: flex; flex-direction: column; gap: 10px; }
+  .fit-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--gray-700); }
+  .fit-check { color: var(--blue); font-size: 14px; flex-shrink: 0; }
+  .fit-cross { color: #DC3545; font-size: 14px; flex-shrink: 0; }
+
+  /* ── PRICE ── */
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .price-card {
+    border-radius: 20px;
+    padding: 36px 28px;
+    border: 2px solid var(--gray-200);
+    position: relative;
+    background: white;
+  }
+  .price-card-featured {
+    border-color: var(--blue);
+    background: var(--blue);
+    color: white;
+  }
+  .price-badge {
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .price-name { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .price-desc { font-size: 12px; color: var(--gray-500); margin-bottom: 24px; }
+  .price-card-featured .price-desc { color: rgba(255,255,255,0.6); }
+  .price-amount { font-size: 44px; font-weight: 900; color: var(--blue); line-height: 1; }
+  .price-card-featured .price-amount { color: white; }
+  .price-currency { font-size: 18px; vertical-align: super; }
+  .price-original { font-size: 13px; color: var(--gray-500); text-decoration: line-through; margin-top: 6px; }
+  .price-card-featured .price-original { color: rgba(255,255,255,0.4); }
+  .price-save { font-size: 12px; color: var(--orange); font-weight: 700; }
+  .price-features { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .price-feature { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray-700); }
+  .price-card-featured .price-feature { color: rgba(255,255,255,0.8); }
+  .price-check { color: var(--blue); }
+  .price-card-featured .price-check { color: var(--orange); }
+
+  /* ── FAQ ── */
+  .faq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+  .faq-item {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 22px 28px;
+    font-weight: 700;
+    display: flex; align-items: flex-start; gap: 16px;
+    font-size: 15px;
+  }
+  .faq-q-icon {
+    width: 28px; height: 28px;
+    background: var(--blue);
+    color: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900;
+    flex-shrink: 0;
+  }
+  .faq-a {
+    padding: 0 28px 22px 72px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--gray-900);
+    color: white;
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .footer-logo { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+  .footer-logo span { color: var(--orange); }
+  .footer-sub { font-size: 12px; opacity: 0.3; letter-spacing: 2px; margin-bottom: 24px; }
+  .footer-line { width: 40px; height: 2px; background: var(--orange); border-radius: 1px; margin: 0 auto 24px; }
+  .footer-copy { font-size: 12px; opacity: 0.3; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .why-wrap { grid-template-columns: 1fr; }
+    .fit-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 60px 24px; }
+    .testimonials-grid { padding: 0 24px 60px; }
+    .why-connector { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-brand">METABOLISM · HEALTH · RESULTS</div>
+  <div class="cover-logo">
+    <div class="logo-icon">理</div>
+    <div class="logo-text">
+      <div class="logo-text-main">理想营养家</div>
+      <div class="logo-text-sub">Be your ideal self</div>
+    </div>
+  </div>
+  <div class="cover-tag">引流体验产品</div>
+  <h1 class="cover-title">28天<span>代谢重启</span><br>体验营</h1>
+  <div class="cover-subtitle">14天代谢训练营 + 14天精准燃脂管理</div>
+  <div class="cover-stats">
+    <div class="cover-stat">
+      <div class="cover-stat-num">49+</div>
+      <div class="cover-stat-label">已服务客户</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-num">2.3kg</div>
+      <div class="cover-stat-label">平均减重（2-3周）</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-num">100%</div>
+      <div class="cover-stat-label">方案有效率</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-num">100%</div>
+      <div class="cover-stat-label">客户满意度</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAIN POINTS ══ -->
+<div class="section-bg">
+<div class="section">
+  <div class="section-tag">你是否也有这些困扰</div>
+  <h2>减肥，为什么<span>这么难？</span></h2>
+  <div class="divider"></div>
+  <div class="section-lead">很多人不是没努力过，而是用错了方向。代谢问题不解决，减下去也会反弹。</div>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">😔</div>
+      <div class="pain-title">减了又反弹</div>
+      <div class="pain-desc">体重下去了，过段时间又回来了，甚至比以前更重。减肥似乎是一个死循环。</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">😩</div>
+      <div class="pain-title">节食太痛苦</div>
+      <div class="pain-desc">靠意志力节食，每天饥肠辘辘，精力涣散，要么没坚持住，要么影响了生活和工作。</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🤷</div>
+      <div class="pain-title">不知道身体怎么了</div>
+      <div class="pain-desc">明明吃得不多，体重就是降不下去。不知道问题在哪里，也不知道该怎么办。</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">⏰</div>
+      <div class="pain-title">没有时间和精力</div>
+      <div class="pain-desc">要上班、要带娃、要照顾家里，很难专门抽出时间来研究吃什么、怎么吃。</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ WHY 14+14 ══ -->
+<div class="section">
+  <div class="section-tag">产品设计逻辑</div>
+  <h2>为什么是<span>14+14天</span>？</h2>
+  <div class="divider"></div>
+  <div class="section-lead">减脂不是靠意志力撑过去的，而是让身体真正学会用脂肪供能。这需要两个阶段：建立基础，然后看见数据。</div>
+
+  <div class="why-wrap">
+    <div class="why-card why-card-1">
+      <div class="why-num">14</div>
+      <div class="why-badge">第一阶段</div>
+      <div class="why-title">代谢训练营</div>
+      <div class="why-desc">通过14天的系统训练，引导身体完成从「依赖碳水」到「燃烧脂肪」的代谢切换。有专业团队全程陪伴，你不是一个人在摸索。</div>
+      <div class="why-list">
+        <div class="why-item"><div class="why-item-dot"></div><div>D1-3：逐步减少主食，平稳过渡</div></div>
+        <div class="why-item"><div class="why-item-dot"></div><div>D4-11：温和生酮，身体开始燃脂</div></div>
+        <div class="why-item"><div class="why-item-dot"></div><div>D12-14：初步体验轻碳轻酮饮食</div></div>
+        <div class="why-item"><div class="why-item-dot"></div><div>两场直播课，系统掌握燃脂原理</div></div>
+      </div>
+    </div>
+
+    <div class="why-card why-card-2">
+      <div class="why-num">14</div>
+      <div class="why-badge">第二阶段</div>
+      <div class="why-title">精准燃脂管理</div>
+      <div class="why-desc">佩戴血酮仪，第一次「看见」自己身体的燃脂数据。专属营养师1对1深入跟进，发现你的代谢特点和潜在问题。</div>
+      <div class="why-list">
+        <div class="why-item"><div class="why-item-dot"></div><div>赠送血酮仪（CKM），数据可视化</div></div>
+        <div class="why-item"><div class="why-item-dot"></div><div>每日图谱解读，营养师1对1分析</div></div>
+        <div class="why-item"><div class="why-item-dot"></div><div>个性化跟进，发现代谢问题</div></div>
+        <div class="why-item"><div class="why-item-dot"></div><div>专属服务群，全天随时响应</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ JOURNEY ══ -->
+<div class="section-bg">
+<div class="section">
+  <div class="section-tag">28天旅程</div>
+  <h2>你将<span>经历什么</span>？</h2>
+  <div class="divider"></div>
+  <div class="section-lead">完整的28天，每一天都有清晰的目标和专业的陪伴。</div>
+
+  <div class="journey-wrap">
+    <div class="journey-phase">
+      <div class="phase-header">
+        <div class="phase-num phase-num-1">1</div>
+        <div class="phase-info">
+          <div class="phase-label">PHASE ONE · 14天代谢训练营</div>
+          <div class="phase-title">代谢重启，建立燃脂基础</div>
+          <div class="phase-days">D0（晚）建群开营 → D14结营</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-days">D0 晚上</div>
+          <div class="timeline-title">开营仪式 · 直播《如何高效燃脂》</div>
+          <div class="timeline-desc">了解燃糖 vs 燃脂的本质区别，建立正确认知，消除对「不吃主食」的恐惧</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-days">D1 – D3</div>
+          <div class="timeline-title">逐餐递减主食，平稳过渡</div>
+          <div class="timeline-desc">D1早餐→D2早午餐→D3三餐，循序渐进让身体适应，每日科普知识 + 随餐点评陪伴</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-days">D4 – D11</div>
+          <div class="timeline-title">温和生酮，身体开始燃脂</div>
+          <div class="timeline-desc">引导身体进入生酮状态，每日饮食随餐点评 + 科普，每日09:00-21:00随时答疑</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-days">D11 晚上</div>
+          <div class="timeline-title">直播《如何保持不反弹》</div>
+          <div class="timeline-desc">个人问题现场解答，了解轻碳轻酮的生活化方式，认识代谢管理的长期价值</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-days">D12 – D14</div>
+          <div class="timeline-title">初步体验轻碳轻酮 · 结营</div>
+          <div class="timeline-desc">探索身体对碳水的耐受边界，结营仪式 + 阶段数据总结，开启第二阶段</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-phase">
+      <div class="phase-header">
+        <div class="phase-num phase-num-2">2</div>
+        <div class="phase-info">
+          <div class="phase-label">PHASE TWO · 14天精准燃脂</div>
+          <div class="phase-title">数据可见，发现你的代谢密码</div>
+          <div class="phase-days">D15建立专属服务群 → D28结案</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item timeline-item-orange">
+          <div class="timeline-days timeline-days-orange">D15</div>
+          <div class="timeline-title">佩戴血酮仪，数据正式启动</div>
+          <div class="timeline-desc">营养师指导佩戴，进入专属1对1服务群，建立个性化跟进关系</div>
+        </div>
+        <div class="timeline-item timeline-item-orange">
+          <div class="timeline-days timeline-days-orange">D16</div>
+          <div class="timeline-title">首次图谱解读（详细版）</div>
+          <div class="timeline-desc">营养师详细解读第一天的血酮数据，教会如何看懂图谱，结合14天效果给出正向反馈</div>
+        </div>
+        <div class="timeline-item timeline-item-orange">
+          <div class="timeline-days timeline-days-orange">D17 – D21</div>
+          <div class="timeline-title">每日图谱解读 · 精准跟进</div>
+          <div class="timeline-desc">每日血酮数据解读，把数据变化和饮食行为关联起来，发现个人代谢特点</div>
+        </div>
+        <div class="timeline-item timeline-item-orange">
+          <div class="timeline-days timeline-days-orange">D21</div>
+          <div class="timeline-title">阶段复盘</div>
+          <div class="timeline-desc">问卷收集客观数据 + 主观感受，营养师给出阶段总结和下周执行建议</div>
+        </div>
+        <div class="timeline-item timeline-item-orange">
+          <div class="timeline-days timeline-days-orange">D22 – D28</div>
+          <div class="timeline-title">持续跟进 · 结案总结</div>
+          <div class="timeline-desc">每日图谱解读持续进行，D28完成结案复盘，出具14天代谢管理总结报告</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ RESULTS ══ -->
+<div class="section">
+  <div class="section-tag">真实客户成果</div>
+  <h2>数字背后的<span>真实改变</span></h2>
+  <div class="divider"></div>
+  <div class="section-lead">以下数据来自真实服务记录，所有数值均有完整的前后对比档案，未经修改。</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">49<span class="stat-unit">+</span></div>
+      <div class="stat-label">近期服务客户数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2.3<span class="stat-unit">kg</span></div>
+      <div class="stat-label">平均减重（2-3周）</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100<span class="stat-unit">%</span></div>
+      <div class="stat-label">方案有效率</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100<span class="stat-unit">%</span></div>
+      <div class="stat-label">客户满意度</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CASES ══ -->
+<div class="section-bg">
+<div class="section">
+  <div class="section-tag">典型案例</div>
+  <h2>她们的<span>28天</span></h2>
+  <div class="divider"></div>
+
+  <div class="cases-grid">
+
+    <!-- Case 1 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">A</div>
+        <div>
+          <div class="case-meta-name">女 · 43岁</div>
+          <div class="case-meta-info">身高172cm · 初始体重67kg · 服务周期14天</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-challenge">
+          <div class="case-challenge-label">核心诉求</div>
+          改善脂肪肝、尿酸、血糖等指标，有乳腺肿瘤病史（已过5年）、动脉斑块，正在服用他汀。过去容易莫名其妙低血糖，夜里易起夜。
+        </div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-num">-2.3kg</div>
+            <div class="result-label">体重变化</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">-2cm</div>
+            <div class="result-label">腰围变化</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">显著改善</div>
+            <div class="result-label">低血糖问题</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">能睡整觉</div>
+            <div class="result-label">睡眠改善</div>
+          </div>
+        </div>
+        <div class="case-quote">
+          这次体验有三好。一好血糖好，之前容易莫名其妙低血糖，现在知道了可能是胰岛素抵抗。二好精神好，晕碳模式解除，精力充沛。三好体重好，一周脱水五斤，改变看得见。谢谢各位老师的陪伴，我已经宣传了，有别的小伙伴也在加入！
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">B</div>
+        <div>
+          <div class="case-meta-name">女 · 45岁</div>
+          <div class="case-meta-info">身高161cm · 初始体重57kg · 服务周期14天</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-challenge">
+          <div class="case-challenge-label">核心诉求</div>
+          改善腹部肥胖、皮肤问题，希望从被动健康转为主动健康。与父母同住，家庭饮食习惯冲突；对碳水有情感依赖，戒断过程有心理挣扎。
+        </div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-num">-3kg</div>
+            <div class="result-label">体重变化</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">-5cm</div>
+            <div class="result-label">腰围变化</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">便秘改善</div>
+            <div class="result-label">肠道健康</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">饮食自由</div>
+            <div class="result-label">初步实现</div>
+          </div>
+        </div>
+        <div class="case-quote">
+          饥饿感是真没有。小肚子明显平了，大概是过去半年多最平的时候了。我发现经过一周，现在我吃东西很有满足感了。
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">C</div>
+        <div>
+          <div class="case-meta-name">女 · 42岁</div>
+          <div class="case-meta-info">身高165cm · 初始体重74.5kg · 服务周期14天</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-challenge">
+          <div class="case-challenge-label">核心诉求</div>
+          改善全身及腹部肥胖、脂肪肝、尿酸、血糖等代谢指标。家庭饮食由老人负责，有外食需求，无法完全按食谱执行。
+        </div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-num">-2.9kg</div>
+            <div class="result-label">体重变化</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">-3cm</div>
+            <div class="result-label">腰围变化</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">-3cm</div>
+            <div class="result-label">臀围变化</div>
+          </div>
+          <div class="result-item">
+            <div class="result-num">不馋碳水</div>
+            <div class="result-label">饮食习惯改变</div>
+          </div>
+        </div>
+        <div class="case-quote">
+          减重了，肚子小了，减肥不饿的状态，饿了可以吃东西。以前125克蓝莓自己一个人吃，现在能有意识克制水果量了。
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══ TESTIMONIALS ══ -->
+<div style="background: var(--blue); padding: 80px 0 0;">
+  <div style="max-width: 900px; margin: 0 auto; padding: 0 40px;">
+    <div class="section-tag section-tag-white">客户真实反馈</div>
+    <h2 class="white">她们<span>这样说</span></h2>
+    <div class="divider divider-white"></div>
+    <p style="color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 40px;">以下均为服务过程中的真实原话，未经修改</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-tag">精力改善</div>
+      不犯困了，也不馋零食，精力状态好，而且没什么饥饿感。
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-tag">睡眠改善</div>
+      晚上起夜少了，应该是碳水吸附的水分少了。能睡个整觉。
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-tag">情绪改善</div>
+      血压也比之前平稳，能明显感觉到自己情绪变平和了。
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-tag">体脂改变</div>
+      体脂率从23%降到19.7%，光是脂肪量减掉了整2.5kg，肌肉量还上升了1.5kg。
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-tag">快速见效</div>
+      脂肪刷刷的掉，感觉太爽了，7斤4两里掉的脂肪至少有6斤，关键吃的还巨满足。
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-tag">适应过渡</div>
+      今天已经没有头疼的反应了，相反，感觉脑子很清醒，人的精力也开始恢复了。
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<div class="section-bg" style="margin-top: 0;">
+<div class="section">
+  <div class="section-tag">关于理想营养家</div>
+  <h2>我们<span>是谁</span></h2>
+  <div class="divider"></div>
+  <div class="section-lead">理想营养家（上海六边同频健康咨询有限公司）是一家专注代谢健康管理的服务机构，同时也是营养师培训孵化平台。</div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="about-icon">🔬</div>
+      <div class="about-title">科学方法论</div>
+      <div class="about-desc">以温和生酮和LCLK（轻碳轻酮）为核心干预方法，有清晰的理论依据和可验证的执行标准，不是经验性判断。</div>
+    </div>
+    <div class="about-card">
+      <div class="about-icon">📊</div>
+      <div class="about-title">数据驱动</div>
+      <div class="about-desc">引入CGM动态血糖仪和CKM血酮仪，将不可见的代谢状态转化为可视化数据，让管理决策有依据。</div>
+    </div>
+    <div class="about-card">
+      <div class="about-icon">👥</div>
+      <div class="about-title">专业团队服务</div>
+      <div class="about-desc">每位客户由专属营养师团队全程跟进，方案制定、日常答疑、数据解读分工明确，服务标准统一。</div>
+    </div>
+    <div class="about-card">
+      <div class="about-icon">🎓</div>
+      <div class="about-title">内部培训体系</div>
+      <div class="about-desc">营养师均来自内部系统培训孵化，服务流程高度标准化，服务质量不因营养师不同而产生明显差距。</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ FIT ══ -->
+<div class="section">
+  <div class="section-tag">适合人群</div>
+  <h2>这个产品<span>适合谁</span>？</h2>
+  <div class="divider"></div>
+
+  <div class="fit-grid">
+    <div class="fit-card fit-yes">
+      <div class="fit-header">
+        <div class="fit-dot-yes"></div>
+        <div class="fit-title-yes">适合参加</div>
+      </div>
+      <div class="fit-list">
+        <div class="fit-item"><div class="fit-check">✓</div><div>想要减脂、改善体型，但不想靠节食撑过去</div></div>
+        <div class="fit-item"><div class="fit-check">✓</div><div>有代谢相关问题（血糖偏高、血脂异常、腹型肥胖等）</div></div>
+        <div class="fit-item"><div class="fit-check">✓</div><div>试过很多方法但效果不稳定，想找到真正适合自己的方式</div></div>
+        <div class="fit-item"><div class="fit-check">✓</div><div>希望在专业陪伴下建立可持续的健康饮食习惯</div></div>
+        <div class="fit-item"><div class="fit-check">✓</div><div>对自己的代谢健康状况感到好奇，想了解身体内部的真实数据</div></div>
+      </div>
+    </div>
+    <div class="fit-card fit-no">
+      <div class="fit-header">
+        <div class="fit-dot-no"></div>
+        <div class="fit-title-no">暂不适合</div>
+      </div>
+      <div class="fit-list">
+        <div class="fit-item"><div class="fit-cross">✗</div><div>I型糖尿病患者（生酮饮食有特殊风险）</div></div>
+        <div class="fit-item"><div class="fit-cross">✗</div><div>II型糖尿病晚期患者</div></div>
+        <div class="fit-item"><div class="fit-cross">✗</div><div>有严重肝肾功能障碍</div></div>
+        <div class="fit-item"><div class="fit-cross">✗</div><div>处于妊娠或哺乳期</div></div>
+        <div class="fit-item" style="color: var(--gray-500); font-style: italic; font-size: 12px; margin-top: 8px;"><div style="width: 14px; flex-shrink: 0;"></div><div>其他特殊情况请在报名前与我们沟通确认</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PRICE ══ -->
+<div class="section-bg">
+<div class="section">
+  <div class="section-tag">价格与选择</div>
+  <h2>选择<span>适合你的</span>方式开始</h2>
+  <div class="divider"></div>
+
+  <div class="price-grid">
+
+    <div class="price-card">
+      <div class="price-name">14天代谢训练营</div>
+      <div class="price-desc">适合想低门槛体验的新客户</div>
+      <div class="price-amount"><span class="price-currency">¥</span>399</div>
+      <div class="price-original">&nbsp;</div>
+      <div class="price-features">
+        <div class="price-feature"><span class="price-check">✓</span> 14天训练营服务</div>
+        <div class="price-feature"><span class="price-check">✓</span> D0+D11两场直播课</div>
+        <div class="price-feature"><span class="price-check">✓</span> 每日随餐点评</div>
+        <div class="price-feature"><span class="price-check">✓</span> 14条科普知识推送</div>
+        <div class="price-feature"><span class="price-check">✓</span> 全天在线答疑</div>
+      </div>
+    </div>
+
+    <div class="price-card price-card-featured">
+      <div class="price-badge">推荐 · 最受欢迎</div>
+      <div class="price-name">14+14天连报套餐</div>
+      <div class="price-desc">训练营 + 精准燃脂全体验</div>
+      <div class="price-amount"><span class="price-currency">¥</span>1598</div>
+      <div class="price-original">原价 ¥1798</div>
+      <div class="price-save">连报立省 ¥200</div>
+      <div class="price-features">
+        <div class="price-feature"><span class="price-check">✓</span> 包含训练营全部内容</div>
+        <div class="price-feature"><span class="price-check">✓</span> 赠送血酮仪（CKM）</div>
+        <div class="price-feature"><span class="price-check">✓</span> 14天1对1精准管理</div>
+        <div class="price-feature"><span class="price-check">✓</span> 每日血酮图谱解读</div>
+        <div class="price-feature"><span class="price-check">✓</span> 每周复盘 + 结案报告</div>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="price-name">14天精准燃脂管理</div>
+      <div class="price-desc">适合已完成训练营的老客户</div>
+      <div class="price-amount"><span class="price-currency">¥</span>1199</div>
+      <div class="price-original">原价 ¥1399</div>
+      <div class="price-save">老客专享立省 ¥200</div>
+      <div class="price-features">
+        <div class="price-feature"><span class="price-check">✓</span> 赠送血酮仪（CKM）</div>
+        <div class="price-feature"><span class="price-check">✓</span> 14天1对1精准管理</div>
+        <div class="price-feature"><span class="price-check">✓</span> 每日血酮图谱解读</div>
+        <div class="price-feature"><span class="price-check">✓</span> 每周复盘 + 结案报告</div>
+        <div class="price-feature"><span class="price-check">✓</span> 老客户专属优惠价</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="section">
+  <div class="section-tag">常见问题</div>
+  <h2>你可能还想<span>知道的</span></h2>
+  <div class="divider"></div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <div class="faq-q-icon">Q</div>
+        减了会不会反弹？
+      </div>
+      <div class="faq-a">
+        普通节食减肥反弹的根本原因，是只减轻了体重，没有修复代谢问题。我们的方法以代谢修复为核心——训练身体学会用脂肪供能，而不是靠克制热量。当身体真正建立了代谢灵活性，饮食习惯也随之改变，反弹的根源才会消失。当然，维持需要时间和巩固，这也是为什么我们建议有需要的客户继续进行84天的长周期管理。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <div class="faq-q-icon">Q</div>
+        好坚持吗？
+      </div>
+      <div class="faq-a">
+        我们设计的方式本来就不是靠意志力撑着的——如果靠意志力，就很难坚持。前三天会逐步减少主食，而不是一下子全断，给身体足够的适应时间。适应期过后，大多数客户反馈饥饿感明显减少，不再馋零食，精力也比以前好。整个过程有专业团队全天陪伴，遇到任何问题随时可以在群里问，不是你一个人在摸索。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <div class="faq-q-icon">Q</div>
+        不吃主食会不会很饿？
+      </div>
+      <div class="faq-a">
+        这是很多人最大的顾虑，也是最容易被打破的误解。饥饿感主要来自血糖波动——吃了高碳水食物，血糖快速升高再快速下降，就容易感到饿。当身体开始利用脂肪供能，血糖趋于稳定，饥饿感反而会明显减少。我们的客户普遍反馈，适应期之后「饥饿感是真的没有了」。我们也会提供充足的蛋白质和优质脂肪摄入建议，确保你吃饱、吃够。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <div class="faq-q-icon">Q</div>
+        需要节食吗？
+      </div>
+      <div class="faq-a">
+        不需要。我们明确反对饥饿式节食——那不仅痛苦，还会导致肌肉流失，对代谢造成更大的伤害。我们的方法是调整食物的结构，而不是减少食物的总量。你可以吃饱，只是吃的食物种类有所调整。很多客户在管理过程中都说「吃得很满足」，这不是节食。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <div class="faq-q-icon">Q</div>
+        可以和家人一起吃饭吗？
+      </div>
+      <div class="faq-a">
+        完全可以。我们的饮食方式设计的出发点之一，就是可以融入日常生活，不影响和家人一起吃饭。具体来说，你可以和家人吃同一桌的菜，只是不吃或少吃主食，其他荤素照常。我们也会提供外食场景的具体建议，帮你在餐厅点餐时做出合适的选择，不需要专门为自己另起一锅。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <div class="faq-q-icon">Q</div>
+        要自己做饭吗？
+      </div>
+      <div class="faq-a">
+        不强制要求自己做饭。我们会提供食物选择指南和外食参考建议，让你在点外卖或去餐厅时也能做出合适的选择。当然，如果你有条件自己做，会有更多的食物选择灵活性；但对于完全外食的客户，我们同样有完整的指导方案，已有多位客户在不做饭的情况下取得了很好的效果。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer">
+  <div class="footer-logo">理想营养家 <span>·</span> 28天代谢重启体验营</div>
+  <div class="footer-sub">METABOLISM · HEALTH · RESULTS</div>
+  <div class="footer-line"></div>
+  <div class="footer-copy">上海六边同频健康咨询有限公司 · 专注代谢健康管理</div>
+</div>
+
+</body>
+</html>
